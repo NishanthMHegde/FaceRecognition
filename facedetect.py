@@ -11,7 +11,7 @@ while True:
     faces = face_cascade.detectMultiScale(img,1.3,5)
     for(x,y,w,h) in faces:
         sample =sample+1
-        cv2.imwrite("dataset/User." + str(id)+"." + str(sample) + ".jpeg",img)
+        cv2.imwrite("dataset/User." + str(id)+"." + str(sample) + ".jpeg",img[y:y+h,x:x+h])
         cv2.rectangle(color,(x,y),(x+w,y+h),(255,0,0),3)
         cv2.waitKey(100)
     cv2.imshow('img',color)
